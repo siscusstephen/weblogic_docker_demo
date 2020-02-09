@@ -43,5 +43,4 @@ Replace the environment specific variables in <> above accordingly to match your
 
 - You can now deploy any application you want to the container from WebLogic console
 
-
-
+4. [Optional] Should you want to create a new image based on the updated container (with apps deployed), you can refer to guide in https://github.com/yyeung13/oke_ocir_demo/blob/master/customise_tomcat.MD Step 2 for details
