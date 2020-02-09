@@ -1,6 +1,6 @@
 # WebLogic Docker Deployment Demo
 
-This demo illustrates how to deploy applications to WebLogic Docker image and push the completed image to OCIR
+This demo illustrates how to deploy applications to WebLogic Docker image
 
 ## Pre-Requisite
 
@@ -27,7 +27,21 @@ password=welcome1
 ```
   User name above is 'weblogic' and password is set to 'welcome1', you can choose your own password accordingly.
 
+- Prepare a script called 'run.sh' with the following content:
+
+```
+docker container run -d -p 7001:7001 -p 9001:9002 -it --name weblogic -v <local_dir_container_domain.properties>:/u01/oracle/properties -e DOMAIN_NAME=<domain_name> store/oracle/weblogic:12.2.1.4-dev-200117
+```
+
+Replace the environment specific variables in <> above accordingly to match your local environment and desired new domain name.
+
+- Run the above script to start WebLogic container
+- Note that default admin console port at 7001 is disabled by default, and you need to access WebLogic console via https://<host_name>:9001/console instead. Login to the admin console with the above ID/password
+- Also note that for simplicity, this demo only guides you create a WebLogic domain with admin server only and deploy applications on Admin Server. For production, you should be creating a cluster and deploy applications ONLY to managed servers instead of Admin Server. More details are available in the Getting Started section of WebLogic Docker image from DockerHub
 
 3. Deploy Applications
+
+- You can now deploy any application you want to the container from WebLogic console
+
 
 
